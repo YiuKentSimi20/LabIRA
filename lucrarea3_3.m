@@ -13,7 +13,6 @@ Ra=4.2;
 La=14.28*10^-3;
 J=0.71*10^-3;
 
-
 % ------------------date_init.m----------------------- %
 s=tf('s');
 pc=2/(s^2+7*s+6);
@@ -26,12 +25,10 @@ N=(Tsim/Ts);
 Orizont=3;
 Q=eye(Orizont);lambda=0.0001;
 R=zeros(N+Orizont,1);R(21:end)=1;
-
 % calcul forma matriceala predictor
 % A=[1 a1*q^-1 a2*q^-2]=[1 a1 a2],B=[b0 b1*q^-1]
 % predictor de ordin 3
 e30=1;
-
 E3=[e30 -A(2)*e30 A(2)*A(2)*e30-A(3)*e30]; %E3=[e30 e31 e32]
 F3=[-A(2)*E3(3)-A(3)*E3(2) -A(3)*E3(3)]; %F3=[f30 f31];
 tmp=conv(E3,B);
