@@ -33,7 +33,16 @@ R=0.1;
 Ad=[0.7332, -0.0528; 1, 0]
 Bd = [1; 0]
 
-[K, S, e] = dlqr(Ad, Bd, Q, R);
+[Kopt, S, e] = dlqr(Ad, Bd, Q, R);
 
 disp('S =')
 disp(S)
+
+disp('Kopt=')
+disp(Kopt)
+
+z1=0.9048;
+z2=0.9139;
+P=[z1; z2];
+
+K0=-place(Ad,Bd,P)
